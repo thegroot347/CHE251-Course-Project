@@ -1,0 +1,43 @@
+%% ============================================================
+% ENERGY SUMMARY
+%% ============================================================
+
+fprintf('\n');
+fprintf('============================================================\n');
+fprintf('SOLVAY PROCESS ENERGY BALANCE\n');
+fprintf('============================================================\n');
+
+fprintf('------------------------------------------------------------\n');
+fprintf('| %-20s | %-15s |\n','Unit','Duty (GJ/h)');
+fprintf('------------------------------------------------------------\n');
+
+for i=1:length(Q_units)
+    fprintf('| %-20s | %15.4f |\n', ...
+        names{i},Q_units(i)/1e9);
+end
+
+fprintf('------------------------------------------------------------\n');
+fprintf('| %-20s | %15.4f |\n', ...
+        'TOTAL GROSS',Q_total/1e9);
+fprintf('| %-20s | %15.4f |\n', ...
+        'HEAT RECOVERY',Q_recovery/1e9);
+fprintf('| %-20s | %15.4f |\n', ...
+        'TOTAL NET',Q_net/1e9);
+fprintf('------------------------------------------------------------\n');
+
+fprintf('\n');
+fprintf('============================================================\n');
+fprintf('SODA ASH PRODUCTION SUMMARY\n');
+fprintf('============================================================\n');
+
+fprintf('Na2CO3 Basis Stream (F24) : %10.4f kmol/h\n',1000);
+
+fprintf('Production Rate           : %10.4f t/h\n',t_per_h);
+
+fprintf('Gross Specific Energy     : %10.4f GJ/t\n', ...
+        energy_per_tonne_gross);
+
+fprintf('Net Specific Energy       : %10.4f GJ/t\n', ...
+        energy_per_tonne_net);
+
+fprintf('============================================================\n');
